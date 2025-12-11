@@ -1,0 +1,107 @@
+{
+  "info": {
+    "name": "MODEX_Backend",
+    "_postman_id": "modex-backend-collection",
+    "description": "Postman collection for MODEX Ticket Booking Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/health",
+          "host": ["{{BASE_URL}}"],
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin - Test",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/admin",
+          "host": ["{{BASE_URL}}"],
+          "path": ["admin"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin - Create Show",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sample Movie\",\n  \"type\": \"MOVIE\",\n  \"start_time\": \"2025-12-12T18:30:00Z\",\n  \"total_seats\": 40\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/admin/create-show",
+          "host": ["{{BASE_URL}}"],
+          "path": ["admin", "create-show"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User - Get Shows",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/api/shows",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "shows"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User - Get Seats by Show",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/api/shows/:id/seats",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "shows", ":id", "seats"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User - Book Seats",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"show_id\": \"<SHOW_ID>\",\n  \"seats\": [1,2],\n  \"user_id\": \"00000000-0000-0000-0000-000000000000\"\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/book",
+          "host": ["{{BASE_URL}}"],
+          "path": ["api", "book"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
